@@ -9,9 +9,6 @@ public class AprilTagUtils {
 
     private static final String TAG = AprilTagUtils.class.getSimpleName();
 
-    //## Even though the AprilTag ids below are specific to the CenterStage
-    // game, retain this enum in the Core project as a model.
-
     // AprilTag identifiers
     public enum AprilTagId {
         TAG_ID_1(1), TAG_ID_2(2), TAG_ID_3(3),
@@ -21,6 +18,7 @@ public class AprilTagUtils {
 
         private final int numericAprilTagId;
 
+        // The constructor is implicitly private.
         AprilTagId(int pNumericId) {
             numericAprilTagId = pNumericId;
         }
