@@ -72,10 +72,14 @@ public class FTCAutoThreading extends LinearOpMode {
     // Where “angle” is 0.0 (forward), -180.0 (back), 90.0 (strafe left), or -90.0 (strafe right).
     private void straightLineMotion(int pTargetClicks, double pAngle, double pVelocity) {
         sleep(3000); // here is where you will actually move the robot
+        telemetry.addLine("Robot motion is complete");
+        telemetry.update();
     }
 
     private ElevatorLevel moveElevator(ElevatorLevel pElevatorLevel) {
         sleep(2000); // here is where you will actually move the elevator
+        telemetry.addLine("Elevator movement is complete");
+        telemetry.update();
         return ElevatorLevel.LEVEL_1; // example: didn't go as far as we asked
     }
 
