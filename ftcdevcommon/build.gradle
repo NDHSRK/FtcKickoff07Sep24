@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    compileSdkVersion 31
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 25
-        targetSdkVersion 31
+        //noinspection ExpiredTargetSdkVersion
+        targetSdkVersion 28
         setProperty("archivesBaseName" , "${archivesBaseName}_${versionName}")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
