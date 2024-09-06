@@ -36,16 +36,16 @@ public class FTCAutoThreading extends LinearOpMode {
         };
 
         CompletableFuture<Void> asyncMoveRobot = Threading.launchAsync(callableDriveToPosition);
-        RobotLog.d(TAG, "Starting thread to move the robot");
+        RobotLog.dd(TAG, "Starting thread to move the robot");
         telemetry.addLine("Starting thread to move the robot");
         telemetry.update();
 
         CompletableFuture<ElevatorLevel> asyncMoveElevator = Threading.launchAsync(callableMoveElevator);
-        RobotLog.d(TAG, "Starting thread to move the elevator");
+        RobotLog.dd(TAG, "Starting thread to move the elevator");
         telemetry.addLine("Starting thread to move the elevator");
         telemetry.update();
 
-        RobotLog.d(TAG, "Wait for both threads to complete");
+        RobotLog.dd(TAG, "Wait for both threads to complete");
         telemetry.addLine("Wait for both threads to complete");
         telemetry.update();
 
@@ -55,14 +55,14 @@ public class FTCAutoThreading extends LinearOpMode {
             Threading.getFutureCompletion(asyncMoveRobot);
             actualLevel = Threading.getFutureCompletion(asyncMoveElevator);
         } catch (Exception ex) {
-            RobotLog.e(TAG, "Threading demo completed with an error " + ex.getMessage());
+            RobotLog.ee(TAG, "Threading demo completed with an error " + ex.getMessage());
             telemetry.addData("Threading demo", "Completed with and error " + ex.getMessage());
             telemetry.update();
             sleep(1000);  // pause to display final telemetry message.
             return;
         }
 
-        RobotLog.d(TAG, "Both threads to complete; final elevator level " + actualLevel);
+        RobotLog.dd(TAG, "Both threads to complete; final elevator level " + actualLevel);
         telemetry.addData("Threading demo", "Complete");
         telemetry.addLine("Final elevator level " + actualLevel);
         telemetry.update();
